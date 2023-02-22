@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Art</string>
+    <string name="mona_liza">Лонардо да Винчи. Мона Лиза. 1514–1515.</string>
+    <string name="van_gog">Сальвадор Дали. Постоянство памяти. 1931.</string>
+    <string name="misha">Иван Шишкин, Константин Савицкий. Утро в сосновом лесу. 1889.</string>
+    <string name="time">Ван Гог. Подсолнухи. 1888–1889.</string>
+    <string name="yl">Густав Климт. Поцелуй. 1907–1908.</string>
+    <string name="go">Дальше</string>
+    <string name="back">Назад</string>
+</resources>
