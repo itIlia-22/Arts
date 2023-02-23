@@ -5,17 +5,20 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.art.ui.theme.ArtTheme
 
 class MainActivity : ComponentActivity() {
@@ -88,24 +91,75 @@ fun ImageAndTextAndButtonArt(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Image(painter = painterResource(artImage), contentDescription = null)
-        Spacer(modifier = Modifier.padding(16.dp))
-        Text(text = stringResource(artText))
-        Spacer(modifier = Modifier.padding(16.dp))
-        Row() {
-            Button(onClick = onClickDone) {
-                Text(text = stringResource(R.string.back))
-            }
-            Button(onClick = onClickNext) {
-                Text(text = stringResource(R.string.go))
-                modifier.padding(32.dp,0.dp,24.dp)
-            }
+        Column(modifier = Modifier.padding(24.dp, 24.dp, 24.dp, 24.dp)) {
+            Image(
+                painter = painterResource(artImage), contentDescription = null,
+                modifier = modifier.padding(top = 8.dp)
+            )
 
         }
+        Spacer(modifier = Modifier.padding(16.dp))
+        Column(
+
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = stringResource(artText),
+                color = Color.Gray,
+                fontSize = 24.sp,
+            )
+        }
+        Spacer(modifier = Modifier.padding(16.dp))
+        Box(
+            modifier = modifier
+                .fillMaxSize()
+            //.padding(bottom = 450.dp)
+        ) {
+            Row(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .padding(start = 80.dp),
+                horizontalArrangement = Arrangement.Start
+            ) {
+                TextButton(onClick = onClickDone) {
+                    Text(
+                        text = stringResource(R.string.back),
+                        fontSize = 16.sp, color = Color.Black,
+                        fontFamily = FontFamily.SansSerif
+                    )
+
+
+                }
+            }
+            Row(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .padding(end = 80.dp),
+                horizontalArrangement = Arrangement.End
+            ) {
+                TextButton(
+                    onClick = onClickNext
+                ) {
+                    Text(
+                        text = stringResource(R.string.go),
+                        fontSize = 16.sp, color = Color.Black,
+                        fontFamily = FontFamily.SansSerif
+                    )
+
+
+                }
+            }
+
+
+        }
+
 
     }
 
